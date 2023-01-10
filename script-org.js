@@ -113,7 +113,7 @@ let plArray = [];
 let profitArray = [];
 let lossArray = [];
 let netTotal = 0;
-
+var differencesArray = [];
 
 for (let i = 0; i < finances.length; i++) {
 
@@ -158,6 +158,29 @@ for (let i = 0; i < finances.length; i++) {
 
 } // *** End Main - For loop ***
 
+// Iterate through the finances array 
+var totalChange = 0;
+var change = 0;
+
+// Start with array [1], subatract from array [0]
+for (var m = 0; m < finances.length-1; m++) {
+  
+    change = finances[m][1] - finances[m+1][1];
+
+    // Create 'changes differences)' Array
+    differencesArray.push(change);
+
+    console.log('count', m);
+    console.log('First item in array ', finances[m][1]);
+    console.log('Second item in array ', finances[m+1][1])
+    // Sum up the Total change over the period
+    totalChange += change;
+}
+
+// Calculate the avaerage change in Profit/Losses 
+var avgChange = totalChange / (finances.length - 1);
+
+
 // --------------------------------------------------------------
  // ****** Profit & Loss Calculation ******
 
@@ -186,5 +209,7 @@ console.log('Financial Analysis');
 console.log('--------------------------');
 console.log('Total Months: ' + monthArray.length);
 console.log('Net Total: $'+ netTotal);
+console.log('Average Change: $' + avgChange.toFixed(2));
 
-
+//console.log(plTotal);
+console.log(differencesArray);
