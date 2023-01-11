@@ -35,6 +35,15 @@ let finances = [
   ['Jun-2010', 522857]
 ];
 
+let financesUpdate = [
+  ['Jan-2010', 867884],
+  ['Feb-2010', 984655],
+  ['Mar-2010', 322013],
+  ['Apr-2010', -69417],
+  ['May-2010', 310503],
+  ['Jun-2010', 522857]
+];
+
 console.table(finances)
 //console.log('Array length is:',finances.length);
 
@@ -87,7 +96,7 @@ for (let i = 0; i < finances.length; i++) {
  
   // 2. Create new array iterate thro list and push into array
   for (let j = 0; j < substrings.length; j++) {
-    monthArray.push(substrings[j]);
+      monthArray.push(substrings[j]);        
   }
   // --------------------------------------------------------------
   //  ****** Profit & Loss ******
@@ -109,7 +118,6 @@ for (let i = 0; i < finances.length; i++) {
         plArray.push(subnumbersPL[k]);   
 
   } // *** End Main - For loop ***
-  
 
 // Iterate through the finances array 
   var totalChange = 0;
@@ -127,20 +135,112 @@ for (let i = 0; i < finances.length; i++) {
       // Create 'changes differences)' Array
       differencesArray.push(change);
 
-
-
       console.log('count', m);
       console.log('First item in array ', finances[m][1]);
       console.log('Second item in array ', finances[m+1][1])
       totalChange += change;
-    //}
-   
+    //} 
   }
 
 // Calculate the avaerage change in Profit/Losses 
-
 var avgChange = totalChange / (finances.length - 1);
 
+//console.log(monthArray);  
+//console.log(differencesArray);
+
+// Updating 'finances array' to reflect differences
+// Initialise first element of Profit/Loss array zero
+financesUpdate[0][1] = '0';
+for (var n=0; n < financesUpdate.length; n++) {
+  if (n > 0) {
+    financesUpdate[n][1] = differencesArray[n-1];
+  } 
+}
+console.table(financesUpdate);  
+
+
+// Searching "financesUpdate" for Greatest Increase 
+
+  // Set first value in Array to test as MAX
+  let maxVal = financesUpdate[0][1];
+  let maxMonth = financesUpdate[0][0];
+
+// console.log(financesUpdate[1][0]);
+
+  for (var index1 = 0; index1 < financesUpdate.length; index1++) {
+
+    // Loop to check all values in array against MAX found
+    if (financesUpdate[index1][1] > maxVal) {
+      maxVal = financesUpdate[index1][1];             // Test next value in array =
+      maxMonth = financesUpdate[index1][0];
+    }
+  }
+  // Output final result
+  console.log('Max value in Profit Array is ', maxVal);
+  console.log('Which occurs during Month ', maxMonth);
+
+// Searching "financesUpdate" for Greatest Decrese
+
+ // Set first value in Array to test as MIN
+let minVal = financesUpdate[0][1];
+let minMonth = financesUpdate[0][0];
+
+for (var index2 = 0; index2 < financesUpdate.length; index2++) {
+
+   // Loop to check all values in array against MIN found
+  if (financesUpdate[index2][1] < minVal) {
+    minVal = financesUpdate[index2][1];             // Test next value in array =
+    minMonth = financesUpdate[index2][0];
+  }
+}
+ // Output final result
+console.log('Min value in Profit Array is ', minVal);
+console.log('Which occurs during Month ', minMonth);
+
+
+
+/*
+let searchString = 'Feb-2010';
+let flag = false;
+let result = 0;
+
+for (var index = 0; index < financesUpdate.length; index++) {
+ //console.log(financesUpdate[index][0]);
+ // console.log(typeof(financesUpdate[index][0]));
+ // console.log(typeof(searchString));
+
+  if (searchString == financesUpdate[index][0]) {
+    flag = true;
+    result = index;
+    break;
+  }
+}
+ 
+  if (flag == true) {
+    console.log('Found on index: ', + index);
+    console.log('Profits ', financesUpdate[result][0]);
+  } else {
+    console.log('Index No not found');
+  }
+
+*/
+
+/*
+// Finding months - Increase / Decrease
+console.log(change);
+var greatestIncrease = 1926159;
+
+let count = 0;
+let monthIncrese = finances[change.indexOf(greatestIncrease) + 1][0];
+
+while(monthIncrese !== -1) {
+  count++;
+  monthIncrese = finances[change.indexOf(greatestIncrease) + 1][0];
+}
+
+console.log(monthIncrese);
+console.log(count);
+*/
 
 
 // console.log(totalChange);
@@ -178,12 +278,14 @@ console.log('--------------------------');
 console.log('Total Months: ' + monthArray.length);
 
 console.log('Net Total: $'+ netTotal);
-
-console.log('total change over period: '+ totalChange); 
 console.log('Average Change: $' + avgChange.toFixed(2));
 
+
  //console.log(plTotal);
-console.log(differencesArray);
+//console.log(differencesArray);
+
+
+//console.log('total change over period: '+ totalChange); 
 
 
 
