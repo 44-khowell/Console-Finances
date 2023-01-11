@@ -1,88 +1,89 @@
 # Unit 4 Challenge: Console Finances
 
-## Overview
+## Description
 
-In this challenge, you'll be using the concepts you've learned to complete the required activity. This activity presents a real-world situation in which your newfound JavaScript skills will come in handy. You are tasked with creating code for analyzing the financial records of a company. You have been provided with a financial dataset in the `starter/index.js` file.
+For this project given the outline of my On-the-job ticket, my main objectives is to:
 
-## Instructions
+	The focus here has been learn JavaScript programming principles and put into practice basic coding 
+	structures such as arrays, conditional statements and being able to perform looping routines to establish 
+	an engaging useful interactive user experiences. 
 
-1. Create a new GitHub repo called `Console-Finances`. Then, clone it to your computer.
+	To achieve this aim, an array of user data (company yearly accounts) was examined, then processed 
+	via Java Scripting to present this data to user in a more meaningful, insightful manner. This allowed me 
+	to fully explore all the coding structures and more required to produce such output.
 
-2. Copy the starter files in your local git repository.
 
-You have been given a dataset composed of arrays with two fields, Date and Profit/Losses.
+## User Story
 
-Your task is to write JavaScript code that analyzes the records to calculate each of the following:
+    With the above in mind, one of the main obstacles was determining the correct mathematical formulas 
+		(calculations) to use in order to produce results from the data which was correct and accurate. To aid me in the process the given data was first ported to a spreadsheet were various different calculation methods trialed and tested.
+    
+    From there key information from the data was targeted to be used in the overall presentation output to the user. Different JavaScript coding techniques was decided upon depending based on the output required from the data.
 
-- The total number of months included in the dataset.
+    Of one the key challenges in this task was to figure out how to traverse an array, to enable one to calculate the differences between array elements and then storing that information for future use in additional calculations later. Another was determining from this new array produced how to establish the maximum and minimum values within the array elements.
 
-- The net total amount of Profit/Losses over the entire period.
+		After some time and research, for loops and if (conditional) statements were used to establish something close to the required results.
 
-- The average of the **changes** in Profit/Losses over the entire period.
 
-  - You will need to track what the total change in profits are from month to month and then find the average.
-  - (`Total/Number of months`)
 
-- The greatest increase in profits (date and amount) over the entire period.
+## Acceptance Criteria
 
-- The greatest decrease in losses (date and amount) over the entire period.
+    GIVEN A Dataset composed of arrays with two fields, Date and Profit/Loss
 
-When you open your code in the browser your resulting analysis should look similar to the following:
+	THEN Write JavaScript code to analyze the records 
+	
+	THEN Calculate the total of months in the dataset 
+		 Calculate the Net Total of the Profit/Losses over the entire period 
+		 Calculate the average changes in Profit/Losses over the entire period
 
-```text
-Financial Analysis
-----------------------------
-Total Months: 25
-Total: $2561231
-Average  Change: $-2315.12
-Greatest Increase in Profits: Feb-2012 ($1926159)
-Greatest Decrease in Profits: Sep-2013 ($-2196167)
-```
+		 Calculate the Greatest Increase in Profits
+		 Calculate the Greatest Decrease in Profits
 
-Your final code should print the analysis to the console.
+		 Display the analysis obtained from the code in the Console output 
 
-**Hints:**
+### Links to Project:
 
-- You will need to do some research on your own for this project!
+URL of the deployed application:  
+  - https://44-khowell.github.io/Console-Finances/
+	
+The URL of the GitHub repository:
+  - https://github.com/44-khowell/Console-Finances
 
-- Remember, in order to combine strings and variables in the console you will need to use **concatenation**.
 
-- How do you only print to the nearest 100th in JavaScript?
 
-## Grading Requirements
+### Credits
 
-This homework is graded based on the following criteria:
+Tutorials: 
 
-### Technical Acceptance Criteria: 40%
+  - https://www.youtube.com/watch?v=TBxs6z8T-l8 
 
-- Satisfies all of the above acceptance criteria.
+References:
 
-### Deployment: 32%
+  - https://www.javascripttutorial.net/javascript-string-split/
+  - https://www.javascripttutorial.net/javascript-array/
+  - https://www.javascripttutorial.net/javascript-for-loop/
+  - https://www.freecodecamp.org/news/java-string-to-int-how-to-convert-a-string-to-an-integer/
+  - https://www.javascripttutorial.net/javascript-if-else-if/
 
-- Application deployed at live URL.
 
-- Application loads with no errors.
+## License 
 
-- Application GitHub URL submitted.
+Copyright (c) Keith Howell
 
-- GitHub repository contains application code.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-### Repository Quality: 12%
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-- Repository has a unique name.
-
-- Repository follows best practices for file structure and naming conventions.
-
-- Repository follows best practices for variable naming conventions, indentation, quality comments, etc.
-
-- Repository contains multiple descriptive commit messages.
-
-- Repository contains quality readme with description, screenshot, link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-- The URL of the deployed application.
-
-- The URL of the GitHub repository that contains your code. Give the repository a unique name and include a README file that describes the project.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
