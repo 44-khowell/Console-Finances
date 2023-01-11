@@ -190,6 +190,8 @@ var financesUpdate = [
    
 // Using the Profits & Loss array, create a Profit_Loss_Change array
 
+// Determine greatest Increase / Decrease from the Updated P&L change array
+
 
 // Declare variables 
 let monthTotal;
@@ -204,6 +206,8 @@ let lossArray = [];
 let netTotal = 0;
 var differencesArray = [];
 
+// --------------------------------------------------------------
+// ******* Calculate Total Profit and extract Months also P&L into arrays 
 for (let i = 0; i < finances.length; i++) {
 
   // Extarct the profit-loss only 
@@ -247,7 +251,8 @@ for (let i = 0; i < finances.length; i++) {
 
 } // *** End Main - For loop ***
 
-// Iterate through the finances array 
+// --------------------------------------------------------------
+// Iterate through the finances array to find Average change in Profit 
 var totalChange = 0;
 var change = 0;
 
@@ -259,9 +264,6 @@ for (var m = 0; m < finances.length-1; m++) {
     // Create 'changes differences)' Array
     differencesArray.push(change);
 
- //   console.log('count', m);
- //  console.log('First item in array ', finances[m][1]);
- //   console.log('Second item in array ', finances[m+1][1])
     // Sum up the Total change over the period
     totalChange += change;
 }
@@ -292,17 +294,18 @@ var avgChange = totalChange / (finances.length - 1);
 
   } // Profit & Loss - End 
 
-
-// **** Updating 'finances array' to reflect differences ****
+// --------------------------------------------------------------
+// ===== Updating 'finances array' to reflect differences =====
 // Initialise first element of Profit/Loss array zero
 financesUpdate[0][1] = '0';
 for (var n=0; n < financesUpdate.length; n++) {
   if (n > 0) {
     financesUpdate[n][1] = differencesArray[n-1];
   } 
-}
-//console.table(financesUpdate);
+} // Updating 'finances array' - End 
 
+
+// --------------------------------------------------------------
 // ==== Searching "financesUpdate" for Greatest Increase ====
 
   // Set first value in Array to test as MAX
@@ -311,18 +314,16 @@ for (var n=0; n < financesUpdate.length; n++) {
 
 // console.log(financesUpdate[1][0]);
 
-  for (var index1 = 0; index1 < financesUpdate.length; index1++) {
+for (var index1 = 0; index1 < financesUpdate.length; index1++) {
 
-    // Loop to check all values in array against MAX found
-    if (financesUpdate[index1][1] > maxVal) {
-      maxVal = financesUpdate[index1][1];             // Test next value in array =
-      maxMonth = financesUpdate[index1][0];
-    }
+// Loop to check all values in array against MAX found
+  if (financesUpdate[index1][1] > maxVal) {
+    maxVal = financesUpdate[index1][1];             // Test next value in array =
+    maxMonth = financesUpdate[index1][0];
   }
-  // Output final result
-  //console.log('Max value in Profit Array is ', maxVal);
-  //console.log('Which occurs during Month ', maxMonth);
+} // Increase - End
 
+// --------------------------------------------------------------
 // ===== Searching "financesUpdate" for Greatest Decrese =====
 
  // Set first value in Array to test as MIN
@@ -331,18 +332,14 @@ let minMonth = financesUpdate[0][0];
 
 for (var index2 = 0; index2 < financesUpdate.length; index2++) {
 
-    // Loop to check all values in array against MIN found
+  // Loop to check all values in array against MIN found
   if (financesUpdate[index2][1] < minVal) {
     minVal = financesUpdate[index2][1];             // Test next value in array =
     minMonth = financesUpdate[index2][0];
   }
-}
-  // Output final result
- // console.log('Min value in Profit Array is ', minVal);
- // console.log('Which occurs during Month ', minMonth);
+} // Decrease - End
 
-
-
+// --------------------------------------------------------------
 // ****** Console Output *********
 console.log('Financial Analysis');
 console.log('--------------------------');
@@ -351,10 +348,4 @@ console.log('Net Total: $'+ netTotal);
 console.log('Average Change: $' + avgChange.toFixed(2));
 
 console.log('Greatest Increase in Profits: ', maxMonth, '$'+ maxVal);
-// console.log('Which occurs during Month ', maxMonth);
 console.log('Greatest Decrease in Profits: ', minMonth, '$'+ minVal);
-// console.log('Which occurs during Month ', minMonth);
-
-
-//console.log(plTotal);
-//console.log(differencesArray);
